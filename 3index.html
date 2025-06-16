@@ -1,0 +1,49 @@
+let editMode = false;
+let dashboardData = {};
+
+// Carrega dados salvos ou usa valores padrão
+function loadData() {
+    // ... (seu código original aqui)
+}
+
+// Salva dados atuais no objeto
+function saveCurrentData() {
+    // ... (seu código original aqui)
+}
+
+// ... (TODO O RESTO DO SEU JAVASCRIPT ORIGINAL VAI AQUI)
+
+function exportData() {
+    saveCurrentData();
+    const dataStr = JSON.stringify(dashboardData, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'operacao-ouro-data.json';
+    link.click();
+}
+
+function importData(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                dashboardData = JSON.parse(e.target.result);
+                localStorage.setItem('operacaoOuroData', JSON.stringify(dashboardData));
+                updateDisplay();
+                alert("Dados importados com sucesso!");
+            } catch (error) {
+                alert("Erro ao importar os dados. Certifique-se de que o arquivo JSON é válido.");
+                console.error("Erro ao importar dados:", error);
+            }
+        };
+        reader.readAsText(file);
+    }
+}
+
+document.getElementById('importDataInput').addEventListener('change', importData);
+
+
+loadData();

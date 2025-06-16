@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Operação Ouro ⚜️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Operação Ouro ⚜️</h1>
+            <p>Dashboard de Progresso - Estratégia de Upgrade Staage One → GMP/MEP</p>
+            <button class="edit-mode-toggle" onclick="toggleEditMode()">🔧 Modo Edição</button>
+            <button class="save-data" onclick="saveData()">💾 Salvar</button>
+            <button class="export-data" onclick="exportData()">Exportar Dados</button>
+            <input type="file" id="importDataInput" accept=".json" style="display:none;">
+            <button class="import-data" onclick="document.getElementById('importDataInput').click()">Importar Dados</button>
+        </div>
+
+        <!-- COLE AQUI TODO O SEU HTML ORIGINAL (exceto o que está dentro das tags <style> e <script>) -->
+        <!-- Exemplo:  <div>...</div>  <p>...</p> etc. -->
+
+    </div>
+
+    <div class="notification" id="notification">
+        Dados salvos com sucesso! 💾
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
